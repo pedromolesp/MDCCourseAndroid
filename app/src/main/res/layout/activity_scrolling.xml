@@ -8,6 +8,16 @@
     tools:context=".ScrollingActivity">
 
     <include layout="@layout/content_scrolling" />
-
+<com.google.android.material.bottomappbar.BottomAppBar
+    android:layout_width="match_parent"
+    android:id="@+id/bottom_app_bar"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    app:navigationIcon="@drawable/ic_menu"
+    app:menu="@menu/menu_scrolling"
+    app:hideOnScroll="true"
+    app:navigationIconTint="@android:color/white"
+    style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
+    />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
