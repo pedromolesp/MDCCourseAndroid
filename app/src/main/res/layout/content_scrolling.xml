@@ -121,12 +121,27 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/imgCover" />
 
-                <com.google.android.material.textfield.TextInputEditText
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/common_padding_default"
+                    app:layout_constraintEnd_toEndOf="@id/tvTitle2"
+                    app:layout_constraintStart_toStartOf="@id/tvTitle2"
+                    app:helperText="@string/card_required"
+                    app:endIconMode="clear_text"
+                    android:hint="@string/card_input_url"
                     app:layout_constraintTop_toBottomOf="@id/tvTitle2"
-                    android:id="@+id/etUrl"
-                    android:inputType="textUri"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etUrl"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textUri"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.google.android.material.card.MaterialCardView>
 
