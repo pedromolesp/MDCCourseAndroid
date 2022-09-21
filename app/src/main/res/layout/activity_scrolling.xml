@@ -8,16 +8,25 @@
     tools:context=".ScrollingActivity">
 
     <include layout="@layout/content_scrolling" />
-<com.google.android.material.bottomappbar.BottomAppBar
-    android:layout_width="match_parent"
-    android:id="@+id/bottom_app_bar"
-    android:layout_height="wrap_content"
-    android:layout_gravity="bottom"
-    app:navigationIcon="@drawable/ic_menu"
-    app:menu="@menu/menu_scrolling"
-    app:hideOnScroll="true"
-    app:navigationIconTint="@android:color/white"
-    style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
-    />
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottom_app_bar"
+        style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:hideOnScroll="true"
+        app:menu="@menu/menu_scrolling"
+        app:navigationIcon="@drawable/ic_menu"
+        app:navigationIconTint="@android:color/white" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_add_task"
+        android:contentDescription="@string/add_tab"
+        app:layout_anchor="@id/bottom_app_bar"
+        />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
