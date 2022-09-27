@@ -95,4 +95,5 @@
     <string name="card_input_url">Image URL</string>
     <string name="card_required">Required</string>
     <string name="password">contraseña</string>
+    <string name="enable_pass">Habilitar contraseña</string>
 </resources>
