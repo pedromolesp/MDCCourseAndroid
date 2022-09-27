@@ -96,4 +96,7 @@
     <string name="card_required">Required</string>
     <string name="password">contraseña</string>
     <string name="enable_pass">Habilitar contraseña</string>
+    <string name="card_toggle_red">Red</string>
+    <string name="card_toggle_blue">Blue</string>
+    <string name="card_toggle_green">Green</string>
 </resources>
