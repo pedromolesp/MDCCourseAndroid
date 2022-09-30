@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import com.example.mdc.databinding.ActivityScrollingBinding
+import com.google.android.material.bottomappbar.BottomAppBar
 
 class ScrollingActivity : AppCompatActivity() {
 
@@ -19,6 +20,13 @@ class ScrollingActivity : AppCompatActivity() {
         binding = ActivityScrollingBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        findViewById<FloatingActionButton>(R.id.fab).setOnClickListener{
+            if(findViewById<BottomAppBar>(R.id.bottom_app_bar).fabAlignmentMode == BottomAppBar.FAB_ALIGNMENT_MODE_CENTER){
+                findViewById<BottomAppBar>(R.id.bottom_app_bar).fabAlignmentMode =  BottomAppBar.FAB_ALIGNMENT_MODE_END
+            }else{
+                findViewById<BottomAppBar>(R.id.bottom_app_bar).fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_CENTER
+            }
+        }
 
     }
 
