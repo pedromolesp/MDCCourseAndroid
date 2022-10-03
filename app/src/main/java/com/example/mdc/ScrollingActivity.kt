@@ -3,6 +3,7 @@ package com.example.mdc
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mdc.databinding.ActivityScrollingBinding
 import com.google.android.material.bottomappbar.BottomAppBar
@@ -30,6 +31,9 @@ class ScrollingActivity : AppCompatActivity() {
         binding.bottomAppBar.setNavigationOnClickListener {
             Snackbar.make(binding.root, R.string.message_action_success, Snackbar.LENGTH_LONG).setAnchorView(binding.fab)
                 .show()
+        }
+        binding.content.btnSkip?.setOnClickListener {
+            binding.content.cardview?.visibility = View.GONE
         }
 
     }
