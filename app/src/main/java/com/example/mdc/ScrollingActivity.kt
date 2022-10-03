@@ -32,8 +32,8 @@ class ScrollingActivity : AppCompatActivity() {
             Snackbar.make(binding.root, R.string.message_action_success, Snackbar.LENGTH_LONG).setAnchorView(binding.fab)
                 .show()
         }
-        binding.content.btnSkip?.setOnClickListener {
-            binding.content.cardview?.visibility = View.GONE
+        binding.content.btnSkip.setOnClickListener {
+            binding.content.cardview.visibility = View.GONE
         }
 
     }
