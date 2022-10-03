@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.mdc.databinding.ActivityScrollingBinding
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
 
 class ScrollingActivity : AppCompatActivity() {
     private lateinit var binding: ActivityScrollingBinding
@@ -25,6 +26,10 @@ class ScrollingActivity : AppCompatActivity() {
                 binding.bottomAppBar.fabAlignmentMode =
                     BottomAppBar.FAB_ALIGNMENT_MODE_CENTER
             }
+        }
+        binding.bottomAppBar.setNavigationOnClickListener {
+            Snackbar.make(binding.root, R.string.message_action_success, Snackbar.LENGTH_LONG).setAnchorView(binding.fab)
+                .show()
         }
 
     }
