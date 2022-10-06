@@ -51,6 +51,10 @@ class ScrollingActivity : AppCompatActivity() {
             .centerCrop()
             .diskCacheStrategy(DiskCacheStrategy.ALL)
             .into(binding.content.imgCover)
+
+        binding.content.cbEnablePass.setOnClickListener {
+            binding.content.tilPassword.isEnabled = !binding.content.tilPassword.isEnabled
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
