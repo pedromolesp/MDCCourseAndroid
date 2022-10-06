@@ -10,7 +10,6 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.mdc.databinding.ActivityScrollingBinding
 import com.google.android.material.bottomappbar.BottomAppBar
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 
 class ScrollingActivity : AppCompatActivity() {
@@ -32,7 +31,8 @@ class ScrollingActivity : AppCompatActivity() {
             }
         }
         binding.bottomAppBar.setNavigationOnClickListener {
-            Snackbar.make(binding.root, R.string.message_action_success, Snackbar.LENGTH_LONG).setAnchorView(binding.fab)
+            Snackbar.make(binding.root, R.string.message_action_success, Snackbar.LENGTH_LONG)
+                .setAnchorView(binding.fab)
                 .show()
         }
         binding.content.btnSkip.setOnClickListener {
@@ -40,11 +40,11 @@ class ScrollingActivity : AppCompatActivity() {
         }
 
         binding.content.btnComprar.setOnClickListener {
-            Snackbar.make(it,R.string.card_buying, Snackbar.LENGTH_LONG)
+            Snackbar.make(it, R.string.card_buying, Snackbar.LENGTH_LONG)
                 .setAnchorView(binding.fab)
                 .setAction(R.string.card_to_go, {
-                Toast.makeText(this,R.string.card_historial, Toast.LENGTH_SHORT).show()
-            }).show()
+                    Toast.makeText(this, R.string.card_historial, Toast.LENGTH_SHORT).show()
+                }).show()
         }
         Glide.with(this)
             .load("https://www.muycomputer.com/wp-content/uploads/2020/01/android.jpg")
@@ -54,6 +54,13 @@ class ScrollingActivity : AppCompatActivity() {
 
         binding.content.cbEnablePass.setOnClickListener {
             binding.content.tilPassword.isEnabled = !binding.content.tilPassword.isEnabled
+        }
+        binding.content.etUrl.onFocusChangeListener = View.OnFocusChangeListener { view, b ->
+            if (b) {
+                Snackbar.make(binding.root, "Foco perdido", Toast.LENGTH_SHORT)
+                    .setAnchorView(binding.content.tilUrl)
+                    .show()
+            }
         }
     }
 
