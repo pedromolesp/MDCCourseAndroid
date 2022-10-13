@@ -46,22 +46,25 @@ class ScrollingActivity : AppCompatActivity() {
                     Toast.makeText(this, R.string.card_historial, Toast.LENGTH_SHORT).show()
                 }).show()
         }
-        Glide.with(this)
-            .load("https://www.muycomputer.com/wp-content/uploads/2020/01/android.jpg")
-            .centerCrop()
-            .diskCacheStrategy(DiskCacheStrategy.ALL)
-            .into(binding.content.imgCover)
+
 
         binding.content.cbEnablePass.setOnClickListener {
             binding.content.tilPassword.isEnabled = !binding.content.tilPassword.isEnabled
         }
         binding.content.etUrl.onFocusChangeListener = View.OnFocusChangeListener { view, b ->
-            if (b) {
-                Snackbar.make(binding.root, "Foco perdido", Toast.LENGTH_SHORT)
-                    .setAnchorView(binding.content.tilUrl)
-                    .show()
+            val url = binding.content.etUrl.text.toString()
+            if (!b) {
+                getImgByUrl(url)
             }
         }
+    }
+
+    private fun getImgByUrl(url: String) {
+        Glide.with(this)
+            .load(url)
+            .centerCrop()
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .into(binding.content.imgCover)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
