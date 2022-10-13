@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.webkit.URLUtil
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
@@ -52,13 +53,19 @@ class ScrollingActivity : AppCompatActivity() {
             binding.content.tilPassword.isEnabled = !binding.content.tilPassword.isEnabled
         }
         binding.content.etUrl.onFocusChangeListener = View.OnFocusChangeListener { view, b ->
+            var errorStr: String? = null
             val url = binding.content.etUrl.text.toString()
             if (!b) {
-                if (url.isEmpty()){
-                    binding.content.tilUrl.error = getString(R.string.card_required)
+                if (url.isEmpty()) {
+                    errorStr = getString(R.string.card_required)
+                } else if (URLUtil.isValidUrl(url)) {
+
+                    getImgByUrl(url)
+                } else {
+                    errorStr = getString(R.string.card_invalid_url)
                 }
-                getImgByUrl(url)
             }
+            binding.content.tilUrl.error = errorStr
         }
     }
 
