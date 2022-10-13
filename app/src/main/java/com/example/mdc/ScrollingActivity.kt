@@ -54,6 +54,9 @@ class ScrollingActivity : AppCompatActivity() {
         binding.content.etUrl.onFocusChangeListener = View.OnFocusChangeListener { view, b ->
             val url = binding.content.etUrl.text.toString()
             if (!b) {
+                if (url.isEmpty()){
+                    binding.content.tilUrl.error = getString(R.string.card_required)
+                }
                 getImgByUrl(url)
             }
         }
