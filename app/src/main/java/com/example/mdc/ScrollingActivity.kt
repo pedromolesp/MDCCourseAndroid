@@ -44,16 +44,16 @@ class ScrollingActivity : AppCompatActivity() {
         binding.content.btnComprar.setOnClickListener {
             Snackbar.make(it, R.string.card_buying, Snackbar.LENGTH_LONG)
                 .setAnchorView(binding.fab)
-                .setAction(R.string.card_to_go, {
+                .setAction(R.string.card_to_go) {
                     Toast.makeText(this, R.string.card_historial, Toast.LENGTH_SHORT).show()
-                }).show()
+                }.show()
         }
 
 
         binding.content.cbEnablePass.setOnClickListener {
             binding.content.tilPassword.isEnabled = !binding.content.tilPassword.isEnabled
         }
-        binding.content.etUrl.onFocusChangeListener = View.OnFocusChangeListener { view, b ->
+        binding.content.etUrl.onFocusChangeListener = View.OnFocusChangeListener { _, b ->
             var errorStr: String? = null
             val url = binding.content.etUrl.text.toString()
             if (!b) {
@@ -68,7 +68,7 @@ class ScrollingActivity : AppCompatActivity() {
             }
             binding.content.tilUrl.error = errorStr
         }
-        binding.content.toggleButton.addOnButtonCheckedListener { group, checkedId, isChecked ->
+        binding.content.toggleButton.addOnButtonCheckedListener { _, checkedId, _ ->
             binding.content.root.setBackgroundColor(
                 when(checkedId){
                     R.id.btnRed -> Color.RED
